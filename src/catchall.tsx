@@ -1,3 +1,3 @@
-export default function Component() {
-  return <div>Hello, world!</div>;
-}
+export const Catchall = () => {
+  return <div>Catchall</div>;
+};

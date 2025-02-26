@@ -23,11 +23,16 @@
     "noUncheckedSideEffectImports": true,
 
     /* Aliases */
-    "baseUrl": "./",
+    "baseUrl": "src",
     "paths": {
-      "layout": ["src/layout"],
-      "components": ["src/components"],
-      "utils": ["src/utils"]
+      "layout/*": ["layout/*"],
+      "components/*": ["components/*"],
+      "pages/*": ["pages/*"],
+      "utils/*": ["utils/*"],
+      "redux/*": ["redux/*"],
+      "constants/*": ["constants/*"],
+      "assets/*": ["assets/*"],
+      "hooks/*": ["hooks/*"]
     }
   },
   "include": ["src"]
