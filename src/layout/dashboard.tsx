@@ -6,38 +6,33 @@ import classNames from 'classnames';
 import { DashboardHeader } from 'components/dashboardHeader';
 import { SideNav } from 'components/sideNav';
 import { links } from 'constants/sideNavLinks';
-import { useAppDispatch } from 'hooks/reduxHooks';
 import useMediaQuery from 'hooks/useMediaQuery';
 
-export const DashboardLayout = ({
-  className,
-}: {
-  title?: string;
-  className?: string;
-}) => {
+const DashboardLayout = () => {
   const isMobile = useMediaQuery('(max-width: 1024px)');
   const { pathname } = useLocation();
-  const dispatch = useAppDispatch();
   const [currentPage, setCurrentPage] = useState('');
 
-  const pageMap = useMemo(() => {
-    return (
-      links.reduce((acc, cur) => ({ ...acc, [cur.href]: cur.title }), {}), []
+  const pageMap = useMemo<{ [key: string]: string }>(() => {
+    return links.reduce(
+      (acc, cur) => ({ ...acc, [cur.href]: cur.topBarTitle || cur.title }),
+      {},
     );
   }, []);
 
   useEffect(() => {
     const pagePath = pathname.split('/')[2] || '';
 
-    const pageName = `/dashboard${pagePath ? `/${pagePath}` : ''}`;
+    const pageName = `/${pagePath}`;
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    console.log(pageName, pagePath, pageMap);
+    setCurrentPage(pageMap[pagePath] || 'Overview');
   }, []);
 
-  const onClick = (e: any, page: string): void => {
+  const onClick = (page: string): void => {
     closeNav();
 
-    // update current page
+    setCurrentPage(page);
   };
 
   const [open, setOpen] = useState(!isMobile);
@@ -61,10 +56,10 @@ export const DashboardLayout = ({
     <main className="flex justify-center items-start h-full w-screen relative z-0">
       <aside
         className={classNames(
-          'sticky transition-all duration-200 overflow-y-scroll lg:overflow-visible w-14 lg:w-64 h-screen top-0 flex-shrink-0 z-0',
+          'sticky transition-all duration-200 overflow-y-scroll lg:overflow-visible w-0 lg:w-64 h-screen top-0 flex-shrink-0 z-0 border-r border-pale-blue-300',
           {
             'w-64': open,
-            'w-14': !open,
+            'w-0': !open,
           },
         )}
       >
@@ -91,10 +86,10 @@ export const DashboardLayout = ({
       ></div>
 
       <section className="flex flex-grow overflow-hidden min-h-screen z-0">
-        <div className="flex flex-col flex-grow lg:w-full relative w-[calc(100vw-3.5rem)] flex-shrink-0 mx-auto pt-16">
+        <div className="flex flex-col flex-grow lg:w-full relative w-[calc(100vw-3.5rem)] flex-shrink-0 mx-auto pt-[100px] md:bg-pale-blue-100">
           <DashboardHeader currentPage={currentPage} />
-          <div className={classNames('container  mx-auto !px-1', className)}>
-            <div className="bg-[rgba(0,0,0,0.08)] min-h-[calc(100vh-100px)] rounded-xl flex flex-col p-6 mb-5">
+          <div className="container mx-auto">
+            <div className="min-h-[calc(100vh-100px)] flex flex-col p-6">
               <Outlet />
             </div>
           </div>
@@ -103,3 +98,5 @@ export const DashboardLayout = ({
     </main>
   );
 };
+
+export default DashboardLayout;

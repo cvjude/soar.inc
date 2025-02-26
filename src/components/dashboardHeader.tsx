@@ -7,7 +7,11 @@ interface DashboardHeaderProps {
 
 export const DashboardHeader: FC<DashboardHeaderProps> = ({ currentPage }) => {
   return (
-    <header className={classNames('z-10 top-0 w-full absolute left-0')}>
+    <header
+      className={classNames(
+        'z-10 top-0 w-full absolute left-0 h-[100px] bg-white',
+      )}
+    >
       <div
         className={classNames(
           'flex justify-between z-10 top-0 w-full container py-4',

@@ -5,6 +5,7 @@ import { Home } from 'assets/home';
 import { Investment } from 'assets/investment';
 import { Loan } from 'assets/loan';
 import { Service } from 'assets/service';
+import { Settings } from 'assets/settings';
 import { Transactions } from 'assets/transactions';
 
 export const links = [
@@ -50,7 +51,7 @@ export const links = [
     href: '/my-priviledges',
   },
   {
-    icon: Priviledge,
+    icon: Settings,
     title: 'Settings',
     href: '/settings',
   },
