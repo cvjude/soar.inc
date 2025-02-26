@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-pale-blue-50: #dfe5ee;
+  --color-pale-blue-100: #f5f7fa;
+  --color-pale-blue-200: #edf1f7;
+  --color-pale-blue-300: #dfeaf2;
+  --color-pale-blue-400: #8ba3cb;
+  --color-pale-blue-450: #718ebf;
+
+  --color-dark-300: #b1b1b1;
+  --color-dark-500: #232323;
+}
+
+.nav__slider {
+  transition: top 0.3s ease-in-out;
+}
