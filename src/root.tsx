@@ -8,6 +8,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Soar Front-End Task</title>
         <link rel="icon" href="/android-icon-192x192.png" />
+
+        {/* Add Google Fonts Link */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+        />
+
         <Meta />
         <Links />
       </head>

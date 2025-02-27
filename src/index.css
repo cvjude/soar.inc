@@ -1,15 +1,29 @@
 @import 'tailwindcss';
 
+* {
+  font-family: 'Inter', serif;
+  font-optical-sizing: auto;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 @theme {
   --color-pale-blue-50: #dfe5ee;
   --color-pale-blue-100: #f5f7fa;
   --color-pale-blue-200: #edf1f7;
   --color-pale-blue-300: #dfeaf2;
   --color-pale-blue-400: #8ba3cb;
-  --color-pale-blue-450: #718ebf;
+  --color-pale-blue-500: #718ebf;
 
   --color-dark-300: #b1b1b1;
   --color-dark-500: #232323;
+
+  --color-dark-blue: #343c6a;
+
+  --color-biro-blue: #396aff;
 }
 
 .nav__slider {

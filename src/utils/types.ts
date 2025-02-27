@@ -12,25 +12,15 @@ export interface Ilinks {
 }
 
 export interface User {
-  id: string | undefined;
-  firstName: string;
-  lastName: string;
+  picture: string;
+  fullName: string;
   email: string;
-  phoneNumber: string;
-  address: string;
-  isAdmin: boolean;
-  profilePic: string;
-  role: string;
-  permissions?: string[];
-  authToken?: string;
-  preferredLanguage?: string;
-  about?: string;
-  designation?: string;
-  status?: string;
-  lastActivity?: Date;
-}
-
-export interface AuthStateData {
-  user?: User | null | undefined;
-  // We can add other things to the user object like permissions, etc.
+  dateOfBirth: string;
+  userName: string;
+  password: string;
+  presentAddress: string;
+  permanentAddress: string;
+  city: string;
+  postalCode: string;
+  country: string;
 }

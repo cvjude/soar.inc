@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useEffect, useMemo, useState } from 'react';
 import { Outlet, useLocation } from 'react-router';
 import classNames from 'classnames';
@@ -7,11 +5,25 @@ import { DashboardHeader } from 'components/dashboardHeader';
 import { SideNav } from 'components/sideNav';
 import { links } from 'constants/sideNavLinks';
 import useMediaQuery from 'hooks/useMediaQuery';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const DashboardLayout = () => {
   const isMobile = useMediaQuery('(max-width: 1024px)');
   const { pathname } = useLocation();
   const [currentPage, setCurrentPage] = useState('');
+  const [open, setOpen] = useState(!isMobile);
+  const [dynamicWidth, setDynamicWidth] = useState<string>('100vw');
+
+  useEffect(() => {
+    const updateWidth = () => {
+      const newWidth = window.innerWidth + 250 + 'px';
+      setDynamicWidth(window.innerWidth >= 1024 ? '100vw' : newWidth);
+    };
+
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
 
   const pageMap = useMemo<{ [key: string]: string }>(() => {
     return links.reduce(
@@ -29,21 +41,6 @@ const DashboardLayout = () => {
     setCurrentPage(pageMap[pagePath] || 'Overview');
   }, []);
 
-  const onClick = (page: string): void => {
-    closeNav();
-
-    setCurrentPage(page);
-  };
-
-  const [open, setOpen] = useState(!isMobile);
-  const openNav = () => {
-    if (isMobile) setOpen(true);
-  };
-
-  const closeNav = () => {
-    if (isMobile) setOpen(false);
-  };
-
   useEffect(() => {
     if (isMobile) {
       setOpen(false);
@@ -52,45 +49,68 @@ const DashboardLayout = () => {
     }
   }, [isMobile]);
 
+  const openNav = () => {
+    if (isMobile) setOpen(true);
+  };
+
+  const closeNav = () => {
+    if (isMobile) setOpen(false);
+  };
+
+  const onClick = (page: string): void => {
+    closeNav();
+
+    setCurrentPage(page);
+  };
+
   return (
-    <main className="flex justify-center items-start h-full w-screen relative z-0">
+    <main
+      className={classNames(
+        'dash-layout__main flex justify-center items-start h-screen relative z-0 transition-transform duration-200',
+        {
+          'translate-x-0': open,
+          '-translate-x-[250px]': !open,
+        },
+      )}
+      style={{ width: dynamicWidth }}
+    >
       <aside
         className={classNames(
-          'sticky transition-all duration-200 overflow-y-scroll lg:overflow-visible w-0 lg:w-64 h-screen top-0 flex-shrink-0 z-0 border-r border-pale-blue-300',
-          {
-            'w-64': open,
-            'w-0': !open,
-          },
+          'sticky overflow-y-scroll lg:overflow-visible w-[250px] h-screen top-0 flex-shrink-0 z-0 border-r border-pale-blue-300',
         )}
       >
         <div className="z-0 relative w-full h-full" tabIndex={-1}>
-          {!open && (
-            <div
-              className="absolute w-full h-screen inset-0 z-50 cursor-pointer"
-              onClick={openNav}
-            ></div>
-          )}
-          <SideNav closeNav={onClick} open={open} />
+          <SideNav closeNav={onClick} />
         </div>
       </aside>
 
-      <div
-        className={classNames(
-          'w-[calc(100vw-16rem)] h-screen fixed lg:hidden bg-[rgba(0,0,0,0.2)] right-0',
-          {
-            'z-40 visible': open,
-            'z-0 invisible': !open,
-          },
-        )}
-        onClick={closeNav}
-      ></div>
+      <section className="flex flex-grow overflow-hidden min-h-screen z-0 relative">
+        <div
+          className={classNames(
+            'w-screen h-screen absolute lg:hidden bg-[rgba(0,0,0,0.2)] right-0',
+            {
+              'z-40 visible': open,
+              'z-0 invisible': !open,
+            },
+          )}
+          onClick={closeNav}
+        ></div>
 
-      <section className="flex flex-grow overflow-hidden min-h-screen z-0">
-        <div className="flex flex-col flex-grow lg:w-full relative w-[calc(100vw-3.5rem)] flex-shrink-0 mx-auto pt-[100px] md:bg-pale-blue-100">
-          <DashboardHeader currentPage={currentPage} />
+        <div className="flex flex-col flex-grow lg:w-full relative w-[calc(100vw-3.5rem)] flex-shrink-0 mx-auto pt-[140px] lg:pt-[100px] lg:bg-pale-blue-100">
+          <DashboardHeader currentPage={currentPage} openNav={openNav} />
           <div className="container mx-auto">
-            <div className="min-h-[calc(100vh-100px)] flex flex-col p-6">
-              <Outlet />
+            <div className="min-h-[calc(100vh-140px)] lg:min-h-[calc(100vh-100px)] flex flex-col p-6">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={location.pathname}
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                >
+                  <Outlet />
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </div>

@@ -4,13 +4,7 @@ import { links } from 'constants/sideNavLinks';
 import { Ilinks } from 'utils/types';
 import { useEffect } from 'react';
 
-export const SideNav = ({
-  closeNav,
-  open,
-}: {
-  closeNav: (page: string) => void;
-  open: boolean;
-}) => {
+export const SideNav = ({ closeNav }: { closeNav: (page: string) => void }) => {
   useEffect(() => {
     updateSliderPosition();
   }, []);
@@ -30,7 +24,7 @@ export const SideNav = ({
       <div className="w-40 h-[100px]">
         <Link to="/">
           <img
-            src={!open ? '/logo-slim.png' : '/logo.png'}
+            src="/logo.png"
             alt="Logo"
             className="w-full h-full object-contain"
           />
@@ -53,8 +47,11 @@ export const SideNav = ({
                     })
                   }
                   onClick={() => {
-                    closeNav(item.topBarTitle || item.title);
                     updateSliderPosition(`${item.title}_${idx}`);
+                    setTimeout(
+                      () => closeNav(item.topBarTitle || item.title),
+                      400,
+                    );
                   }}
                   data-navIndex={`${item.title}_${idx}`}
                   key={`${item.title}-${idx}`}
@@ -69,9 +66,8 @@ export const SideNav = ({
                       {item.icon && (
                         <item.icon className="w-6 h-6 fill-current text-inherit" />
                       )}
-                      {open && (
-                        <span className="ml-4 text-lg">{item.title}</span>
-                      )}
+
+                      <span className="ml-4 text-lg">{item.title}</span>
                     </p>
                   )}
                 </NavLink>
