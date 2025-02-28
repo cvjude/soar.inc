@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 .react-router/
+build
+.vercel
+
+package-lock.json

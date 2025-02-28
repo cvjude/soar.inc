@@ -9,4 +9,7 @@ export default defineConfig({
   ssr: {
     noExternal: ['react-datepicker'],
   },
+  build: {
+    outDir: 'dist',
+  },
 });
