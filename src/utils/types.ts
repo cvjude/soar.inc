@@ -12,25 +12,55 @@ export interface Ilinks {
 }
 
 export interface User {
-  id: string | undefined;
-  firstName: string;
-  lastName: string;
+  picture: string;
+  fullName: string;
   email: string;
-  phoneNumber: string;
-  address: string;
-  isAdmin: boolean;
-  profilePic: string;
-  role: string;
-  permissions?: string[];
-  authToken?: string;
-  preferredLanguage?: string;
-  about?: string;
-  designation?: string;
-  status?: string;
-  lastActivity?: Date;
+  dateOfBirth: string;
+  userName: string;
+  password: string;
+  presentAddress: string;
+  permanentAddress: string;
+  city: string;
+  postalCode: string;
+  country: string;
 }
 
-export interface AuthStateData {
-  user?: User | null | undefined;
-  // We can add other things to the user object like permissions, etc.
+export interface CardData {
+  id: string;
+  balance: string;
+  cardHolder: string;
+  validThru: string;
+  cardNumber: string;
+}
+
+export interface TransactionData {
+  id: string;
+  amount: string;
+  date: string;
+  description: string;
+  type: 'debit' | 'credit';
+  source: string;
+}
+
+export interface WeeklyActivityData {
+  day: string;
+  deposit: number;
+  withdraw: number;
+}
+
+export interface ExpenseStaticsticsData {
+  label: string;
+  value: number;
+}
+
+export interface ContactsData {
+  id: string;
+  name: string;
+  picture: string;
+  designation: string;
+}
+
+export interface HistoryBalanceData {
+  month: string;
+  balance: number;
 }

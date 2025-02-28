@@ -1,23 +1,17 @@
-import { Link, NavLink } from 'react-router';
-import classnames from 'classnames';
 import { links } from 'constants/sideNavLinks';
-import { Ilinks } from 'utils/types';
+import classnames from 'classnames';
 import { useEffect } from 'react';
+import { Link, NavLink } from 'react-router';
+import { Ilinks } from 'utils/types';
 
-export const SideNav = ({
-  closeNav,
-  open,
-}: {
-  closeNav: (page: string) => void;
-  open: boolean;
-}) => {
+export const SideNav = ({ closeNav }: { closeNav: (page: string) => void }) => {
   useEffect(() => {
     updateSliderPosition();
   }, []);
 
   const updateSliderPosition = (idx?: string) => {
     const activeNav = document.querySelector('.nav-link__active');
-    const navIndex = idx || activeNav?.getAttribute('data-navIndex');
+    const navIndex = idx || activeNav?.getAttribute('data-navindex');
     const slider = document.querySelector('.nav__slider') as HTMLElement;
 
     if (slider) {
@@ -30,7 +24,7 @@ export const SideNav = ({
       <div className="w-40 h-[100px]">
         <Link to="/">
           <img
-            src={!open ? '/logo-slim.png' : '/logo.png'}
+            src="/logo.png"
             alt="Logo"
             className="w-full h-full object-contain"
           />
@@ -53,10 +47,13 @@ export const SideNav = ({
                     })
                   }
                   onClick={() => {
-                    closeNav(item.topBarTitle || item.title);
                     updateSliderPosition(`${item.title}_${idx}`);
+                    setTimeout(
+                      () => closeNav(item.topBarTitle || item.title),
+                      400,
+                    );
                   }}
-                  data-navIndex={`${item.title}_${idx}`}
+                  data-navindex={`${item.title}_${idx}`}
                   key={`${item.title}-${idx}`}
                 >
                   {({ isActive }) => (
@@ -69,9 +66,8 @@ export const SideNav = ({
                       {item.icon && (
                         <item.icon className="w-6 h-6 fill-current text-inherit" />
                       )}
-                      {open && (
-                        <span className="ml-4 text-lg">{item.title}</span>
-                      )}
+
+                      <span className="ml-4 text-lg">{item.title}</span>
                     </p>
                   )}
                 </NavLink>
