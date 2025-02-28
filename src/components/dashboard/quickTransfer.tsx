@@ -19,9 +19,11 @@ export const QuikTransfer = () => {
       <div className="lg:bg-white lg:rounded-[25px] lg:shadow md:p-6 2xl:p-12 xl:aspect-[350/235] flex flex-col justify-between min-w-[265px] lg:min-w-auto gap-4 lg:gap-2 flex-1">
         <div>
           {isLoading ? (
-            [...Array(3)].map((_, index) => (
-              <ContactCardSkeleton key={`contact_card_skeleton_${index}`} />
-            ))
+            <div className="flex justify-between mr-[50px]">
+              {[...Array(3)].map((_, index) => (
+                <ContactCardSkeleton key={`contact_card_skeleton_${index}`} />
+              ))}
+            </div>
           ) : (
             <div className="pr-[50px]">
               <Carousel>

@@ -1,4 +1,37 @@
+import { parse, format } from 'date-fns';
 import { toast } from 'react-toastify';
+
+const freeText = /[^\n]{2,}/;
+const email =
+  /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:]|])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:)+)\])/;
+
+const patterns: {
+  [key: string]: RegExp;
+} = {
+  fullName: /^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/,
+  email,
+
+  message: freeText,
+  password: freeText,
+  companyName: freeText,
+  workEmail: freeText,
+  name: freeText,
+  firstName: freeText,
+  description: freeText,
+  lastName: freeText,
+  jobTitle: freeText,
+  review: freeText,
+  title: freeText,
+  newPassword:
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+  website:
+    /^(http:\/\/|https:\/\/)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*.[‌a-z]{3}\.([a-z]+)?$/,
+};
+
+export const validate = (field: string, Regex: string): boolean => {
+  if (patterns[Regex]?.test(field)) return true;
+  return false;
+};
 
 export const formatAmount = (price: string) => {
   const amount = parseFloat(price);
@@ -43,4 +76,25 @@ export const debounce = <T extends (...args: any[]) => void>(
     clearTimeout(timer);
     timer = setTimeout(() => func(...args), delay);
   };
+};
+
+export const isVisible = function (ele: any, container: any) {
+  const eleTop = ele.offsetTop;
+  const eleBottom = eleTop + ele.clientHeight;
+
+  const containerTop = container.scrollTop;
+  const containerBottom = containerTop + container.clientHeight;
+
+  return (
+    (eleTop >= containerTop && eleBottom <= containerBottom) ||
+    (eleTop < containerTop && containerTop < eleBottom) ||
+    (eleTop < containerBottom && containerBottom < eleBottom)
+  );
+};
+
+export const formatDate = (date: string) => {
+  const parsedDate = parse(date, 'dd/MM/yyyy', new Date());
+  // const adjustedDate = subDays(parsedDate, 1);
+  const formattedDate = format(parsedDate, 'dd MMMM yyyy');
+  return formattedDate;
 };

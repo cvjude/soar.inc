@@ -11,7 +11,7 @@ export const ContactCard: FC<ContactCardProps> = ({ contact }) => {
       <img
         src={contact.picture}
         alt={contact.name}
-        className="object-cover w-[50px] h-[50px] md:w-[70px] md:h-[70px] mb-4"
+        className="object-cover w-[50px] h-[50px] md:w-[70px] md:h-[70px] mb-4 rounded-full"
       />
 
       <div>
@@ -27,5 +27,14 @@ export const ContactCard: FC<ContactCardProps> = ({ contact }) => {
 };
 
 export const ContactCardSkeleton = () => {
-  return <div>ContactCardSkeleton</div>;
+  return (
+    <div className="flex flex-col items-center animate-pulse">
+      <div className="w-[50px] h-[50px] md:w-[70px] md:h-[70px] mb-4 bg-gray-200 rounded-full" />
+
+      <div className="w-full">
+        <div className="bg-gray-200 h-2 w-full rounded mb-2"></div>
+        <div className="bg-gray-200 h-2 w-[80%]"></div>
+      </div>
+    </div>
+  );
 };
