@@ -1,0 +1,1 @@
+import{o as t}from"./chunk-HA7DTUK3-CbFDrjxG.js";const r=({className:o})=>t.jsx("svg",{width:"9",height:"15",viewBox:"0 0 9 15",fill:"none",xmlns:"http://www.w3.org/2000/svg",className:o,children:t.jsx("path",{d:"M1 1L7.5 7.5L1 14",strokeWidth:"2"})});export{r as C};
