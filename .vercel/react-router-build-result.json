@@ -1,0 +1,94 @@
+{
+  "buildManifest": {
+    "routes": {
+      "root": {
+        "path": "",
+        "id": "root",
+        "file": "root.tsx"
+      },
+      "layout/dashboard": {
+        "id": "layout/dashboard",
+        "parentId": "root",
+        "file": "./layout/dashboard.tsx"
+      },
+      "pages/dashboard": {
+        "id": "pages/dashboard",
+        "parentId": "layout/dashboard",
+        "file": "./pages/dashboard.tsx",
+        "index": true
+      },
+      "pages/settings": {
+        "id": "pages/settings",
+        "parentId": "layout/dashboard",
+        "file": "./pages/settings.tsx",
+        "path": "settings"
+      },
+      "pages/catchall": {
+        "id": "pages/catchall",
+        "parentId": "layout/dashboard",
+        "file": "./pages/catchall.tsx",
+        "path": "*?"
+      },
+      "catchall": {
+        "id": "catchall",
+        "parentId": "root",
+        "file": "catchall.tsx",
+        "path": "*?"
+      }
+    }
+  },
+  "reactRouterConfig": {
+    "appDirectory": "/Users/chinosojude/Documents/work/js/web/soar.inc/src",
+    "basename": "/",
+    "buildDirectory": "/Users/chinosojude/Documents/work/js/web/soar.inc/build",
+    "future": {
+      "unstable_optimizeDeps": false,
+      "unstable_splitRouteModules": false,
+      "unstable_viteEnvironmentApi": false
+    },
+    "routes": {
+      "root": {
+        "path": "",
+        "id": "root",
+        "file": "root.tsx"
+      },
+      "layout/dashboard": {
+        "id": "layout/dashboard",
+        "parentId": "root",
+        "file": "./layout/dashboard.tsx"
+      },
+      "pages/dashboard": {
+        "id": "pages/dashboard",
+        "parentId": "layout/dashboard",
+        "file": "./pages/dashboard.tsx",
+        "index": true
+      },
+      "pages/settings": {
+        "id": "pages/settings",
+        "parentId": "layout/dashboard",
+        "file": "./pages/settings.tsx",
+        "path": "settings"
+      },
+      "pages/catchall": {
+        "id": "pages/catchall",
+        "parentId": "layout/dashboard",
+        "file": "./pages/catchall.tsx",
+        "path": "*?"
+      },
+      "catchall": {
+        "id": "catchall",
+        "parentId": "root",
+        "file": "catchall.tsx",
+        "path": "*?"
+      }
+    },
+    "serverBuildFile": "index.js",
+    "serverModuleFormat": "esm",
+    "ssr": false
+  },
+  "viteConfig": {
+    "build": {
+      "assetsDir": "assets"
+    }
+  }
+}
