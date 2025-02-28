@@ -43,3 +43,20 @@ export const recentTransactions: TransactionData[] = [
     source: 'transfer',
   },
 ];
+
+export const weeklyActivity = [
+  { day: 'Sat', deposit: 250, withdraw: 500 },
+  { day: 'Sun', deposit: 150, withdraw: 350 },
+  { day: 'Mon', deposit: 250, withdraw: 320 },
+  { day: 'Tue', deposit: 380, withdraw: 480 },
+  { day: 'Wed', deposit: 250, withdraw: 150 },
+  { day: 'Thu', deposit: 250, withdraw: 400 },
+  { day: 'Fri', deposit: 320, withdraw: 400 },
+];
+
+export const expenseStatistics = [
+  { label: 'Entertainment', value: 20.39 },
+  { label: 'Bill Expense', value: 13.61 },
+  { label: 'Others', value: 25 },
+  { label: 'Investment', value: 41 },
+];

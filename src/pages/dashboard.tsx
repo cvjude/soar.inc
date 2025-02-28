@@ -1,5 +1,7 @@
+import { ExpenseStatictics } from 'components/dashboard/expenseStatictics';
 import { MyCards } from 'components/dashboard/myCards';
 import { RecentTransactions } from 'components/dashboard/recentTransactions';
+import { WeeklyActivity } from 'components/dashboard/weeklyActivity';
 import { ToastContainer } from 'react-toastify';
 
 export const Dashboard = () => {
@@ -12,9 +14,12 @@ export const Dashboard = () => {
           <RecentTransactions />
         </div>
 
-        <div className="flex flex-col md:flex-row gap-10"></div>
+        <div className="element-gap grid xl:grid-cols-3">
+          <WeeklyActivity />
+          <ExpenseStatictics />
+        </div>
 
-        <div className="flex flex-col md:flex-row gap-10"></div>
+        <div className="element-gap grid xl:grid-cols-3"></div>
       </div>
     </>
   );

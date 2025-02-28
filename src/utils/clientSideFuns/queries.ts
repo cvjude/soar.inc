@@ -1,6 +1,16 @@
-import { cards, recentTransactions } from 'constants/data';
+import {
+  cards,
+  recentTransactions,
+  weeklyActivity,
+  expenseStatistics,
+} from 'constants/data';
 import { QueryFunction } from '@tanstack/react-query';
-import { CardData, TransactionData } from 'utils/types';
+import {
+  CardData,
+  TransactionData,
+  WeeklyActivityData,
+  ExpenseStaticsticsData,
+} from 'utils/types';
 
 export const fetchCards: QueryFunction<
   CardData[],
@@ -22,4 +32,20 @@ export const fetchRecentTransactions: QueryFunction<
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
   return recentTransactions.slice(0, limit);
+};
+
+export const fetchWeeklyActivity: QueryFunction<
+  WeeklyActivityData[],
+  [string]
+> = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  return weeklyActivity;
+};
+
+export const fetchExpenseStatistics: QueryFunction<
+  ExpenseStaticsticsData[],
+  [string]
+> = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  return expenseStatistics;
 };

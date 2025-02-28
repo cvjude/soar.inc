@@ -13,7 +13,7 @@ export const MyCards = () => {
   return (
     <div className="md:col-span-2 overflow-hidden h-full flex flex-col">
       <DashbardTitleSection title="My Cards" seeAllLink="/cards" />
-      <div className="element-gap flex w-full overflow-x-scroll md:overflow-auto h-full">
+      <div className="element-gap flex w-full overflow-x-scroll md:overflow-auto flex-1">
         {isLoading
           ? [...Array(2)].map((_, index) => (
               <CreditCardSkeleton

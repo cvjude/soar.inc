@@ -41,3 +41,14 @@ export interface TransactionData {
   type: 'debit' | 'credit';
   source: string;
 }
+
+export interface WeeklyActivityData {
+  day: string;
+  deposit: number;
+  withdraw: number;
+}
+
+export interface ExpenseStaticsticsData {
+  label: string;
+  value: number;
+}

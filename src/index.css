@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
-body {
+body,
+svg {
   font-family: 'Inter', serif;
   font-optical-sizing: auto;
 }
@@ -11,6 +12,8 @@ input:focus {
 }
 
 @theme {
+  --color-light-grey: #f3f3f5;
+
   --color-pale-blue-50: #dfe5ee;
   --color-pale-blue-100: #f5f7fa;
   --color-pale-blue-200: #edf1f7;
@@ -37,6 +40,8 @@ input:focus {
   --color-credit-green: #41d4a8;
   --color-debit-red: #ff4b4a;
 
+  --color-dark-orange: #fc7900;
+
   --card-gradient: linear-gradient(107.38deg, #5b5a6f 2.61%, #000000 101.2%);
   --card-footer-gradient: linear-gradient(
     180deg,
@@ -60,5 +65,14 @@ input:focus {
 }
 
 .element-gap {
-  @apply gap-5 xl:gap-6 2xl:gap-8
+  @apply gap-5 xl:gap-6 2xl:gap-8;
+}
+
+.x-axis text,
+.y-axis text {
+  font-size: 8px !important;
+}
+
+.bar-chart__axis_text {
+  @apply fill-current text-pale-blue-500 text-[12px] md:text-[13px];
 }
