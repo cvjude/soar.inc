@@ -7,7 +7,7 @@ export const Dashboard = () => {
     <>
       <ToastContainer />
       <div className="flex flex-col w-full gap-10">
-        <div className="grid xl:grid-cols-3 gap-5 xl:gap-8">
+        <div className="element-gap grid xl:grid-cols-3">
           <MyCards />
           <RecentTransactions />
         </div>

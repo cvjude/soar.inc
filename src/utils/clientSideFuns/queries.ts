@@ -1,6 +1,6 @@
-import { faker } from '@faker-js/faker';
+import { cards, recentTransactions } from 'constants/data';
 import { QueryFunction } from '@tanstack/react-query';
-import { CardData } from 'utils/types';
+import { CardData, TransactionData } from 'utils/types';
 
 export const fetchCards: QueryFunction<
   CardData[],
@@ -8,24 +8,18 @@ export const fetchCards: QueryFunction<
 > = async ({ queryKey }) => {
   const [, { limit = 10 }] = queryKey;
 
-  const generateCardData = (): CardData => {
-    const fullCardNumber = faker.finance.creditCardNumber();
-    const last4Digits = fullCardNumber.slice(-4);
-    const formattedCardNumber = `${fullCardNumber.slice(0, 4)} **** **** ${last4Digits}`;
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    return {
-      balance: faker.finance.amount(),
-      cardHolder: faker.person.fullName(),
-      validThru: faker.date
-        .future()
-        .toISOString()
-        .slice(2, 7)
-        .replace('-', '/'),
-      cardNumber: formattedCardNumber,
-    };
-  };
+  return cards.slice(0, limit);
+};
+
+export const fetchRecentTransactions: QueryFunction<
+  TransactionData[],
+  [string, { page: number; limit: number }]
+> = async ({ queryKey }) => {
+  const [, { limit = 10 }] = queryKey;
 
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
-  return Array.from({ length: limit }, generateCardData);
+  return recentTransactions.slice(0, limit);
 };

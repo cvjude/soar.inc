@@ -9,7 +9,7 @@ export const CreditCardLayout: FC<{
 }> = ({ children, theme }) => (
   <div
     className={classNames(
-      'aspect-[350/235] w-full rounded-[15px] lg:rounded-[25px] flex flex-col justify-between min-w-[265px] md:min-w-auto',
+      'aspect-[350/235] xl:aspect-auto w-full rounded-[15px] lg:rounded-[25px] flex flex-col justify-between min-w-[265px] md:min-w-auto',
       {
         'credit-card': theme === 'dark',
         'bg-white border border-pale-blue-300': theme !== 'dark',
@@ -20,17 +20,12 @@ export const CreditCardLayout: FC<{
   </div>
 );
 
-interface CreditCardProps extends CardData {
+interface CreditCardProps {
   theme?: 'dark' | 'light';
+  card: CardData;
 }
 
-export const CreditCard: FC<CreditCardProps> = ({
-  balance,
-  cardHolder,
-  validThru,
-  cardNumber,
-  theme,
-}) => {
+export const CreditCard: FC<CreditCardProps> = ({ card, theme }) => {
   return (
     <CreditCardLayout theme={theme}>
       <div className="w-full px-6 py-2 md:py-3 flex justify-between items-center">
@@ -55,7 +50,7 @@ export const CreditCard: FC<CreditCardProps> = ({
               },
             )}
           >
-            {formatAmount(balance)}
+            {formatAmount(card.balance)}
           </p>
         </div>
 
@@ -88,7 +83,7 @@ export const CreditCard: FC<CreditCardProps> = ({
               },
             )}
           >
-            {cardHolder}
+            {card.cardHolder}
           </p>
         </div>
 
@@ -113,7 +108,7 @@ export const CreditCard: FC<CreditCardProps> = ({
               },
             )}
           >
-            {validThru}
+            {card.validThru}
           </p>
         </div>
       </div>
@@ -133,7 +128,7 @@ export const CreditCard: FC<CreditCardProps> = ({
             'text-dark-blue': theme !== 'dark',
           })}
         >
-          {cardNumber}
+          {card.cardNumber}
         </p>
         <img
           src={theme === 'dark' ? '/master-card.png' : '/master-card_light.png'}

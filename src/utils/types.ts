@@ -26,8 +26,18 @@ export interface User {
 }
 
 export interface CardData {
+  id: string;
   balance: string;
   cardHolder: string;
   validThru: string;
   cardNumber: string;
+}
+
+export interface TransactionData {
+  id: string;
+  amount: string;
+  date: string;
+  description: string;
+  type: 'debit' | 'credit';
+  source: string;
 }

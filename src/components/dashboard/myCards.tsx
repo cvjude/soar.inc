@@ -11,9 +11,9 @@ export const MyCards = () => {
   });
 
   return (
-    <div className="md:col-span-2 overflow-hidden">
+    <div className="md:col-span-2 overflow-hidden h-full flex flex-col">
       <DashbardTitleSection title="My Cards" seeAllLink="/cards" />
-      <div className="flex w-full gap-5 xl:gap-8 overflow-x-scroll md:overflow-auto">
+      <div className="element-gap flex w-full overflow-x-scroll md:overflow-auto h-full">
         {isLoading
           ? [...Array(2)].map((_, index) => (
               <CreditCardSkeleton
@@ -23,12 +23,9 @@ export const MyCards = () => {
             ))
           : data?.map((card, index) => (
               <CreditCard
-                key={card.cardNumber}
-                cardHolder={card.cardHolder}
-                cardNumber={card.cardNumber}
-                validThru={card.validThru}
-                balance={card.balance}
+                card={card}
                 theme={index === 0 ? 'dark' : 'light'}
+                key={card.id}
               />
             ))}
       </div>

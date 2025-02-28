@@ -2,9 +2,13 @@ import { toast } from 'react-toastify';
 
 export const formatAmount = (price: string) => {
   const amount = parseFloat(price);
+  const hasDecimals = amount % 1 !== 0;
+
   const formattedPrice = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
+    minimumFractionDigits: hasDecimals ? 2 : 0,
+    maximumFractionDigits: hasDecimals ? 2 : 0,
   }).format(amount);
 
   return formattedPrice;

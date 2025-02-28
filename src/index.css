@@ -24,6 +24,19 @@ input:focus {
   --color-dark-blue: #343c6a;
 
   --color-biro-blue: #396aff;
+
+  --color-pale-yellow-50: #fff5d9;
+  --color-pale-yellow-500: #ffbb38;
+
+  --color-pale-purple-50: #e7edff;
+  --color-pale-purple-500: #396aff;
+
+  --color-pale-teal-50: #dcfaf8;
+  --color-pale-teal-500: #16dbcc;
+
+  --color-credit-green: #41d4a8;
+  --color-debit-red: #ff4b4a;
+
   --card-gradient: linear-gradient(107.38deg, #5b5a6f 2.61%, #000000 101.2%);
   --card-footer-gradient: linear-gradient(
     180deg,
@@ -44,4 +57,8 @@ input:focus {
 
 .credit-card__footer {
   background: var(--card-footer-gradient);
+}
+
+.element-gap {
+  @apply gap-5 xl:gap-6 2xl:gap-8
 }
