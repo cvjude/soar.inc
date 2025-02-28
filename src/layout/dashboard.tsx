@@ -123,7 +123,10 @@ const DashboardLayout = () => {
             'flex flex-col flex-grow lg:w-full relative w-[calc(100vw-3.5rem)] flex-shrink-0 mx-auto pt-[140px] lg:pt-[100px]',
             {
               'lg:bg-pale-blue-100': currentPage === 'Overview',
-              'bg-pale-blue-100': currentPage !== 'Overview',
+              'bg-pale-blue-100': currentPage === 'Settings',
+              'bg-[#f9f9fb]': !(
+                currentPage === 'Overview' || currentPage === 'Settings'
+              ),
             },
           )}
         >
