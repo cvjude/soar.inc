@@ -3,6 +3,8 @@ import {
   recentTransactions,
   weeklyActivity,
   expenseStatistics,
+  contacts,
+  historyBalance,
 } from 'constants/data';
 import { QueryFunction } from '@tanstack/react-query';
 import {
@@ -10,6 +12,8 @@ import {
   TransactionData,
   WeeklyActivityData,
   ExpenseStaticsticsData,
+  ContactsData,
+  HistoryBalanceData,
 } from 'utils/types';
 
 export const fetchCards: QueryFunction<
@@ -48,4 +52,20 @@ export const fetchExpenseStatistics: QueryFunction<
 > = async () => {
   await new Promise((resolve) => setTimeout(resolve, 2000));
   return expenseStatistics;
+};
+
+export const fetchContacts: QueryFunction<
+  ContactsData[],
+  [string]
+> = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  return contacts;
+};
+
+export const fetchBalanceHistory: QueryFunction<
+  HistoryBalanceData[],
+  [string]
+> = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  return historyBalance;
 };

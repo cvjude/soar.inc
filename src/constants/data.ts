@@ -60,3 +60,51 @@ export const expenseStatistics = [
   { label: 'Others', value: 25 },
   { label: 'Investment', value: 41 },
 ];
+
+export const contacts = [
+  {
+    id: 'contact_1',
+    name: 'Livia Bator',
+    picture: '/livia_bator.png',
+    designation: 'CEO',
+  },
+  {
+    id: 'contact_2',
+    name: 'Randy Press',
+    picture: '/randy_press.png',
+    designation: 'Director',
+  },
+  {
+    id: 'contact_3',
+    name: 'Workman',
+    picture: '/workman.png',
+    designation: 'Designer',
+  },
+  {
+    id: 'contact_4',
+    name: 'Jemi Wilson',
+    picture: '/jemi_wilson.png',
+    designation: 'Developer',
+  },
+  {
+    id: 'contact_5',
+    name: 'Eddy Cusuma',
+    picture: '/eddy_cusuma.png',
+    designation: 'Manager',
+  },
+];
+
+export const historyBalance = [
+  { month: 'Jul', balance: 150 },
+  { month: 'Aug', balance: 300 },
+  { month: 'Sep', balance: 250 },
+  { month: 'Oct', balance: 450 },
+  { month: 'Nov', balance: 420 },
+  { month: 'Dec', balance: 800 },
+  { month: 'Jan', balance: 200 },
+  { month: 'Feb', balance: 580 },
+  { month: 'Mar', balance: 250 },
+  { month: 'Apr', balance: 620 },
+  { month: 'May', balance: 620 },
+  { month: 'Jun', balance: 620 },
+];

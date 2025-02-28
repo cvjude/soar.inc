@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 import { FC, useEffect, useRef, useState } from 'react';
+import { debounce } from 'utils/helpers';
 import { ExpenseStaticsticsData } from 'utils/types';
 
 interface PieChartProps {
@@ -23,13 +24,13 @@ export const PieChart: FC<PieChartProps> = ({ data }) => {
     class: `fill-current ${colors[idx % colors.length]}`,
   }));
 
-  const updateSize = () => {
+  const updateSize = debounce(() => {
     setTimeout(() => {
       if (containerRef.current) {
         setSize(containerRef.current.clientWidth);
       }
     }, 0);
-  };
+  }, 200);
 
   useEffect(() => {
     updateSize();

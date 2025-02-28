@@ -52,3 +52,15 @@ export interface ExpenseStaticsticsData {
   label: string;
   value: number;
 }
+
+export interface ContactsData {
+  id: string;
+  name: string;
+  picture: string;
+  designation: string;
+}
+
+export interface HistoryBalanceData {
+  month: string;
+  balance: number;
+}
