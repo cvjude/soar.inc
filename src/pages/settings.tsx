@@ -1,10 +1,13 @@
 import { Profile } from 'components/settings/profile';
+import TabLayout from 'layout/tabSection';
 
 export const Settings = () => {
   return (
-    <div>
+    <TabLayout tabs={['Edit Profile', 'Preferences', 'Security']}>
       <Profile />
-    </div>
+      <div>Preferences</div>
+      <div>Security</div>
+    </TabLayout>
   );
 };
 

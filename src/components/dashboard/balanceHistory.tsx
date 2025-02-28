@@ -11,9 +11,9 @@ export const BalanceHistory = () => {
   });
 
   return (
-    <div className="col-span-5 xl:col-span-3 overflow-hidden h-full flex flex-col">
+    <div className="col-span-5 xl:col-span-3 h-full flex flex-col">
       <DashbardTitleSection title="Balance History" />
-      <div className="element-gap flex w-full flex-1 lg:bg-white lg:rounded-[25px] lg:shadow lg:p-6 min-h-[300px] md:min-h-auto max-h-[387px]">
+      <div className="element-gap flex w-full flex-1 lg:bg-white lg:rounded-[25px] lg:shadow-btn lg:p-6 min-h-[300px] md:min-h-auto max-h-[387px]">
         {isLoading ? <AreaChartSkeleton /> : <AreaChart data={data} />}
       </div>
     </div>

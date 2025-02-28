@@ -16,7 +16,7 @@ export const QuikTransfer = () => {
     <div className="col-span-5 xl:col-span-2 flex flex-col">
       <DashbardTitleSection title="Quick Transfer" />
 
-      <div className="lg:bg-white lg:rounded-[25px] lg:shadow md:p-6 2xl:p-12 xl:aspect-[350/235] flex flex-col justify-between min-w-[265px] lg:min-w-auto gap-4 lg:gap-2 flex-1">
+      <div className="lg:bg-white lg:rounded-[25px] lg:shadow-btn md:p-6 2xl:p-12 xl:aspect-[350/235] flex flex-col justify-between min-w-[265px] lg:min-w-auto gap-4 lg:gap-2 flex-1">
         <div>
           {isLoading ? (
             <div className="flex justify-between mr-[50px]">

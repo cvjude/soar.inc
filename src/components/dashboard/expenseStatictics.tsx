@@ -14,7 +14,7 @@ export const ExpenseStatictics = () => {
     <div className="col-span-3 xl:col-span-1">
       <DashbardTitleSection title="Expense Statistics" />
 
-      <div className="lg:bg-white lg:rounded-[25px] lg:shadow lg:p-6 aspect-[350/322] lg:min-w-auto max-w-full xl:max-h-[436px] xl:h-[24vw] flex w-full">
+      <div className="lg:bg-white lg:rounded-[25px] lg:shadow-btn lg:p-6 aspect-[350/322] lg:min-w-auto max-w-full xl:max-h-[436px] xl:h-[24vw] flex w-full">
         {isLoading ? <PieChartSkeleton /> : <PieChart data={data} />}
       </div>
     </div>

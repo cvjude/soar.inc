@@ -17,7 +17,7 @@ export const RecentTransactions = () => {
     <div>
       <DashbardTitleSection title="Recent Transaction" />
 
-      <div className="lg:bg-white lg:rounded-[25px] lg:shadow lg:p-6 lg:aspect-[350/235] flex flex-col justify-between min-w-[265px] lg:min-w-auto gap-4 lg:gap-2">
+      <div className="lg:bg-white lg:rounded-[25px] lg:shadow-btn lg:p-6 lg:aspect-[350/235] flex flex-col justify-between min-w-[265px] lg:min-w-auto gap-4 lg:gap-2">
         {isLoading
           ? [...Array(3)].map((_, index) => (
               <RecentTransactionLoader key={`recent_transactions_${index}`} />
