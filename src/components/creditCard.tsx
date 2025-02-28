@@ -178,7 +178,11 @@ export const CreditCardSkeleton: FC<{
       <div className="credit-card__footer px-6 py-4 flex justify-between items-center">
         <div className="h-5 rounded-full bg-gray-200 w-[60%] animate-pulse"></div>
 
-        <img src="/master-card.png" alt="CHIP" className="w-15" />
+        <img
+          src={theme === 'dark' ? '/master-card.png' : '/master-card_light.png'}
+          alt="CHIP"
+          className="w-10 md:w-15"
+        />
       </div>
     </CreditCardLayout>
   );

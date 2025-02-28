@@ -1,5 +1,5 @@
-import { QueryFunction } from '@tanstack/react-query';
 import { faker } from '@faker-js/faker';
+import { QueryFunction } from '@tanstack/react-query';
 import { CardData } from 'utils/types';
 
 export const fetchCards: QueryFunction<

@@ -1,8 +1,8 @@
-import { Link, NavLink } from 'react-router';
-import classnames from 'classnames';
 import { links } from 'constants/sideNavLinks';
-import { Ilinks } from 'utils/types';
+import classnames from 'classnames';
 import { useEffect } from 'react';
+import { Link, NavLink } from 'react-router';
+import { Ilinks } from 'utils/types';
 
 export const SideNav = ({ closeNav }: { closeNav: (page: string) => void }) => {
   useEffect(() => {

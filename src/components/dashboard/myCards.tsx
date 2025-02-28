@@ -1,8 +1,8 @@
+import { FETCH_CARD_DATA } from 'constants/index';
+import { useQuery } from '@tanstack/react-query';
 import { CreditCard, CreditCardSkeleton } from 'components/creditCard';
 import { DashbardTitleSection } from 'components/dashbardTitleSection';
-import { useQuery } from '@tanstack/react-query';
 import { fetchCards } from 'utils/clientSideFuns/queries';
-import { FETCH_CARD_DATA } from 'constants/index';
 
 export const MyCards = () => {
   const { data, isLoading } = useQuery({

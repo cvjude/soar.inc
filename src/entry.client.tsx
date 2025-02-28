@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { HydratedRouter } from 'react-router/dom';
-import { UserProvider } from 'contexts/userContext';
 import {
   QueryClient,
   QueryClientProvider,
   QueryCache,
 } from '@tanstack/react-query';
+import { UserProvider } from 'contexts/userContext';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { HydratedRouter } from 'react-router/dom';
 import { handleError } from 'utils/helpers';
 import './index.css';
 

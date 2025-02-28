@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Outlet, useLocation } from 'react-router';
+import { links } from 'constants/sideNavLinks';
 import classNames from 'classnames';
 import { DashboardHeader } from 'components/dashboardHeader';
 import { SideNav } from 'components/sideNav';
-import { links } from 'constants/sideNavLinks';
-import useMediaQuery from 'hooks/useMediaQuery';
 import { motion, AnimatePresence } from 'framer-motion';
+import useMediaQuery from 'hooks/useMediaQuery';
+import { useEffect, useMemo, useState } from 'react';
+import { Outlet, useLocation } from 'react-router';
 
 const DashboardLayout = () => {
   const isMobile = useMediaQuery('(max-width: 1024px)');
@@ -103,7 +103,15 @@ const DashboardLayout = () => {
               'z-0 invisible': !open,
             },
           )}
+          role="button"
+          tabIndex={0}
+          aria-label="Close navigation menu"
           onClick={closeNav}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              closeNav();
+            }
+          }}
         ></div>
 
         <div className="flex flex-col flex-grow lg:w-full relative w-[calc(100vw-3.5rem)] flex-shrink-0 mx-auto pt-[140px] lg:pt-[100px] lg:bg-pale-blue-100">

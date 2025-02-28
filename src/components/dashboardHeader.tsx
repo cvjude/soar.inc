@@ -1,12 +1,12 @@
-import { FC } from 'react';
-import classNames from 'classnames';
-import { SearchBar } from './searchBar';
-import { Link } from 'react-router';
-import { Gear } from 'assets/gear';
 import { Bell } from 'assets/bell';
-import { useUser } from 'contexts/userContext';
+import { Gear } from 'assets/gear';
 import { Menu } from 'assets/menu';
+import classNames from 'classnames';
+import { useUser } from 'contexts/userContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FC } from 'react';
+import { Link } from 'react-router';
+import { SearchBar } from './searchBar';
 
 const variants = {
   hidden: { opacity: 0, y: -20 },
@@ -70,7 +70,7 @@ export const DashboardHeader: FC<DashboardHeaderProps> = ({
           </div>
 
           <div className="h-[35px] w-[35px] lg:h-[60px] lg:w-[60px] flex items-center justify-center rounded-[50%]">
-            <img src={user?.picture} alt="Profile picture" />
+            <img src={user?.picture} alt="Profile" />
           </div>
         </div>
       </nav>
