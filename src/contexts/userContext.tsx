@@ -5,7 +5,7 @@ const defaultUser: User = {
   picture: '/charlene.png',
   fullName: 'Charlene Reed ',
   email: 'charlenereed@gmail.com ',
-  dateOfBirth: '25-01-1990',
+  dateOfBirth: '25/01/1990',
   userName: 'charlenereed',
   password: 'charlenereed',
   presentAddress: 'San Jose, California, USA',

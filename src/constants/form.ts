@@ -1,11 +1,19 @@
 export const useProfileSchema = [
   {
+    placeholder: '',
+    label: '',
+    name: 'picture',
+    type: 'image',
+    errorMsg: '',
+    valErrorMsg: '',
+  },
+  {
     placeholder: 'Enter your full name',
     label: 'Your Name',
     name: 'fullName',
     type: 'text',
-    valErrorMsg: 'Please enter your full name',
-    errorMsg: 'Invalid name',
+    errorMsg: 'Please enter your full name',
+    valErrorMsg: 'Invalid name',
     required: true,
   },
   {
@@ -13,8 +21,8 @@ export const useProfileSchema = [
     label: 'User Name',
     name: 'userName',
     type: 'text',
-    valErrorMsg: 'Please enter your user name',
-    errorMsg: 'Invalid userName',
+    errorMsg: 'Please enter your user name',
+    valErrorMsg: 'Minimum 3 letters',
     required: true,
   },
   {
@@ -22,8 +30,8 @@ export const useProfileSchema = [
     label: 'Email',
     name: 'email',
     type: 'text',
-    valErrorMsg: 'Please enter your email',
-    errorMsg: 'Invalid email',
+    errorMsg: 'Please enter your email',
+    valErrorMsg: 'Invalid email',
     required: true,
   },
   {
@@ -31,8 +39,8 @@ export const useProfileSchema = [
     label: 'Password',
     name: 'password',
     type: 'password',
-    valErrorMsg: 'Please enter your password',
-    errorMsg:
+    errorMsg: 'Please enter your password',
+    valErrorMsg:
       'Password must be 8+ characters, with a mix of letters, numbers, and a special character',
     required: true,
   },
@@ -41,8 +49,8 @@ export const useProfileSchema = [
     label: 'Date of Birth',
     name: 'dateOfBirth',
     type: 'date',
-    valErrorMsg: 'Please enter your date of birth',
-    errorMsg: 'Invalid date of birth',
+    errorMsg: 'Please enter your date of birth',
+    valErrorMsg: 'Invalid date of birth',
     required: true,
   },
   {
@@ -50,8 +58,8 @@ export const useProfileSchema = [
     label: 'Present Address',
     name: 'presentAddress',
     type: 'text',
-    valErrorMsg: 'Please enter your present address',
-    errorMsg: 'Invalid present address',
+    errorMsg: 'Please enter your present address',
+    valErrorMsg: 'Invalid present address',
     required: false,
   },
   {
@@ -59,8 +67,8 @@ export const useProfileSchema = [
     label: 'Permanent Address',
     name: 'permanentAddress',
     type: 'text',
-    valErrorMsg: 'Please enter your permanent address',
-    errorMsg: 'Invalid permanent address',
+    errorMsg: 'Please enter your permanent address',
+    valErrorMsg: 'Invalid permanent address',
     required: true,
   },
   {
@@ -68,8 +76,8 @@ export const useProfileSchema = [
     label: 'City',
     name: 'city',
     type: 'text',
-    valErrorMsg: 'Please enter your city',
-    errorMsg: 'Invalid city',
+    errorMsg: 'Please enter your city',
+    valErrorMsg: 'Invalid city',
     required: true,
   },
   {
@@ -77,8 +85,8 @@ export const useProfileSchema = [
     label: 'Postal Code',
     name: 'postalCode',
     type: 'text',
-    valErrorMsg: 'Please enter your postal code',
-    errorMsg: 'Invalid postal code',
+    errorMsg: 'Please enter your postal code',
+    valErrorMsg: 'Invalid postal code',
     required: true,
   },
   {
@@ -86,8 +94,8 @@ export const useProfileSchema = [
     label: 'Country',
     name: 'country',
     type: 'text',
-    valErrorMsg: 'Please enter your country',
-    errorMsg: 'Invalid country',
+    errorMsg: 'Please enter your country',
+    valErrorMsg: 'Invalid country',
     required: true,
   },
 ];

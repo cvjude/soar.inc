@@ -10,22 +10,16 @@ const patterns: {
 } = {
   fullName: /^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/,
   email,
-
-  message: freeText,
-  password: freeText,
-  companyName: freeText,
-  workEmail: freeText,
-  name: freeText,
-  firstName: freeText,
-  description: freeText,
-  lastName: freeText,
-  jobTitle: freeText,
-  review: freeText,
-  title: freeText,
-  newPassword:
+  password:
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-  website:
-    /^(http:\/\/|https:\/\/)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*.[‌a-z]{3}\.([a-z]+)?$/,
+  dateOfBirth: /^\d{2}\/\d{2}\/\d{4}$/,
+  userName: /^[a-zA-Z0-9]{3,}$/,
+  presentAddress: freeText,
+  permanentAddress: freeText,
+  city: freeText,
+  postalCode: /^\d{5}$/,
+  country: freeText,
+  picture: freeText,
 };
 
 export const validate = (field: string, Regex: string): boolean => {

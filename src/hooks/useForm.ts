@@ -145,7 +145,6 @@ export const useForm = ({
     } catch (error) {
       const formError: any = error;
 
-      console.log(error);
       if (formError.response) {
         if (formError.response.status === 500) {
           formError.message = 'Network error please try again';

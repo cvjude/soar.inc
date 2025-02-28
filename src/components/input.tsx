@@ -98,29 +98,56 @@ export const Input: FC<InputProps> = ({
   };
 
   return (
-    <div className="input">
+    <div className="input w-full">
       <div
-        className="bg-transparent w-full py-2 px-5 outline-none flex flex-col"
+        className="bg-transparent w-full outline-none flex flex-col pb-4 relative"
         ref={inputCon}
       >
-        <p className="text-xs md:text-base text-dark-500 mb-2">{label}</p>
+        <p className="text-xs md:text-base text-dark-500 mb-2.5">{label}</p>
 
-        {type !== 'date' && (
-          <input
-            className={classNames(
-              'rounded-[15px] border border-pale-blue-300 relative py-3 px-5 text-xs md:text-base text-pale-blue-500 placeholder:text-pale-blue-500',
-            )}
-            required={required}
-            name={name}
-            onChange={validateOne}
-            value={value}
-            ref={inputRef}
-            {...attr}
-            placeholder={example || placeholder || ''}
-            type={type}
-            id={name}
-          />
-        )}
+        <div className="relative w-full">
+          {type !== 'date' && (
+            <input
+              className={classNames(
+                'rounded-[15px] border border-pale-blue-300 relative py-3 px-5 text-xs md:text-base text-pale-blue-500 placeholder:text-pale-blue-500 w-full',
+                {
+                  'pr-12':
+                    type.includes('password') && (value || internalValue),
+                },
+              )}
+              required={required}
+              name={name}
+              onChange={validateOne}
+              value={value}
+              ref={inputRef}
+              {...attr}
+              placeholder={example || placeholder || ''}
+              type={showPassword ? 'text' : type}
+              id={name}
+            />
+          )}
+
+          {(value || internalValue) && type.includes('password') ? (
+            <span
+              onClick={() => {
+                setShowPassword(!showPassword);
+                onPasswordReviel();
+              }}
+              className="absolute right-5 top-1/2 transform -translate-y-1/2 cursor-pointer"
+              tabIndex={0}
+              role="button"
+              onKeyDown={() => {
+                //
+              }}
+            >
+              {!showPassword ? (
+                <Eye className="fill-current text-pale-blue-500 w-5 h-5" />
+              ) : (
+                <Hide className="fill-current text-pale-blue-500 w-5 h-5" />
+              )}
+            </span>
+          ) : null}
+        </div>
 
         {type === 'date' && (
           <DatePicker
@@ -147,27 +174,10 @@ export const Input: FC<InputProps> = ({
           />
         )}
 
-        {(value || internalValue) && type.includes('password') ? (
-          <span
-            onClick={() => {
-              setShowPassword(!showPassword);
-              onPasswordReviel();
-            }}
-            className={'reviel-password'}
-            tabIndex={0}
-            role="button"
-            onKeyDown={() => {
-              //
-            }}
-          >
-            {!showPassword ? <Eye /> : <Hide />}
-          </span>
-        ) : null}
-
         <p
           className={classNames(
             'error',
-            'absolute right-0 -top-2.5 mr-2.5 text-tomato bg-inherit',
+            'mr-2.5 text-debit-red text-[12px] bg-inherit absolute -bottom-1 right-0',
           )}
           style={{ display: error || inputInternalError ? 'block' : 'none' }}
         >

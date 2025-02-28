@@ -33,8 +33,6 @@ const Carousel = ({ children }: { children: React.ReactNode[] }) => {
     }
   };
 
-  console.log(currentIndex);
-
   return (
     <div className="relative w-full max-w-3xl mx-auto">
       {currentIndex > 0 && (
