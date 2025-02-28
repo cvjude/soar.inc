@@ -24,3 +24,10 @@ export interface User {
   postalCode: string;
   country: string;
 }
+
+export interface CardData {
+  balance: string;
+  cardHolder: string;
+  validThru: string;
+  cardNumber: string;
+}

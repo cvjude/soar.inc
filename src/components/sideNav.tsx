@@ -11,7 +11,7 @@ export const SideNav = ({ closeNav }: { closeNav: (page: string) => void }) => {
 
   const updateSliderPosition = (idx?: string) => {
     const activeNav = document.querySelector('.nav-link__active');
-    const navIndex = idx || activeNav?.getAttribute('data-navIndex');
+    const navIndex = idx || activeNav?.getAttribute('data-navindex');
     const slider = document.querySelector('.nav__slider') as HTMLElement;
 
     if (slider) {
@@ -53,7 +53,7 @@ export const SideNav = ({ closeNav }: { closeNav: (page: string) => void }) => {
                       400,
                     );
                   }}
-                  data-navIndex={`${item.title}_${idx}`}
+                  data-navindex={`${item.title}_${idx}`}
                   key={`${item.title}-${idx}`}
                 >
                   {({ isActive }) => (

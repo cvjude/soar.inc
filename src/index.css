@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-* {
+body {
   font-family: 'Inter', serif;
   font-optical-sizing: auto;
 }
@@ -24,8 +24,24 @@ input:focus {
   --color-dark-blue: #343c6a;
 
   --color-biro-blue: #396aff;
+  --card-gradient: linear-gradient(107.38deg, #5b5a6f 2.61%, #000000 101.2%);
+  --card-footer-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  --font-lato: 'Lato', sans-serif;
 }
 
 .nav__slider {
   transition: top 0.3s ease-in-out;
+}
+
+.credit-card {
+  background: var(--card-gradient);
+}
+
+.credit-card__footer {
+  background: var(--card-footer-gradient);
 }

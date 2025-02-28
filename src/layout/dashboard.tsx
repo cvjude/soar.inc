@@ -12,18 +12,31 @@ const DashboardLayout = () => {
   const { pathname } = useLocation();
   const [currentPage, setCurrentPage] = useState('');
   const [open, setOpen] = useState(!isMobile);
-  const [dynamicWidth, setDynamicWidth] = useState<string>('100vw');
+  const [mainStyles, setMainStyles] = useState({
+    width: '100vw',
+    overflowX: 'auto',
+  });
 
+  // This is just for other developers who like to press the button to resize quickly
+  // Normally this won't be need for just regular users
+  // And esther egg of some sorts
   useEffect(() => {
     const updateWidth = () => {
-      const newWidth = window.innerWidth + 250 + 'px';
-      setDynamicWidth(window.innerWidth >= 1024 ? '100vw' : newWidth);
+      const width = window.innerWidth >= 1024 ? '100vw' : 'calc(100vw + 250px)';
+      setMainStyles({
+        width,
+        overflowX: 'auto',
+      });
     };
 
     updateWidth();
     window.addEventListener('resize', updateWidth);
     return () => window.removeEventListener('resize', updateWidth);
   }, []);
+
+  const handletransitionEnd = () => {
+    setMainStyles({ ...mainStyles, overflowX: 'hidden' });
+  };
 
   const pageMap = useMemo<{ [key: string]: string }>(() => {
     return links.reduce(
@@ -34,10 +47,6 @@ const DashboardLayout = () => {
 
   useEffect(() => {
     const pagePath = pathname.split('/')[2] || '';
-
-    const pageName = `/${pagePath}`;
-
-    console.log(pageName, pagePath, pageMap);
     setCurrentPage(pageMap[pagePath] || 'Overview');
   }, []);
 
@@ -72,7 +81,8 @@ const DashboardLayout = () => {
           '-translate-x-[250px]': !open,
         },
       )}
-      style={{ width: dynamicWidth }}
+      onTransitionEnd={handletransitionEnd}
+      style={mainStyles as React.CSSProperties}
     >
       <aside
         className={classNames(
