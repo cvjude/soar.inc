@@ -50,6 +50,8 @@ input:focus {
   );
 
   --font-lato: 'Lato', sans-serif;
+
+  --shadow-btn: 4px 4px 18px -2px #e7e4e8cc;
 }
 
 .nav__slider {

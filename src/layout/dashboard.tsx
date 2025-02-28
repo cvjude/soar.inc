@@ -40,13 +40,17 @@ const DashboardLayout = () => {
 
   const pageMap = useMemo<{ [key: string]: string }>(() => {
     return links.reduce(
-      (acc, cur) => ({ ...acc, [cur.href]: cur.topBarTitle || cur.title }),
+      (acc, cur) => ({
+        ...acc,
+        [cur.href.split('/')[1]]: cur.topBarTitle || cur.title,
+      }),
       {},
     );
   }, []);
 
   useEffect(() => {
-    const pagePath = pathname.split('/')[2] || '';
+    const pagePath = pathname.split('/')[1] || '';
+
     setCurrentPage(pageMap[pagePath] || 'Overview');
   }, []);
 
@@ -114,7 +118,18 @@ const DashboardLayout = () => {
           }}
         ></div>
 
-        <div className="flex flex-col flex-grow lg:w-full relative w-[calc(100vw-3.5rem)] flex-shrink-0 mx-auto pt-[140px] lg:pt-[100px] lg:bg-pale-blue-100">
+        <div
+          className={classNames(
+            'flex flex-col flex-grow lg:w-full relative w-[calc(100vw-3.5rem)] flex-shrink-0 mx-auto pt-[140px] lg:pt-[100px]',
+            {
+              'lg:bg-pale-blue-100': currentPage === 'Overview',
+              'bg-pale-blue-100': currentPage === 'Settings',
+              'bg-[#f9f9fb]': !(
+                currentPage === 'Overview' || currentPage === 'Settings'
+              ),
+            },
+          )}
+        >
           <DashboardHeader currentPage={currentPage} openNav={openNav} />
           <div className="container mx-auto">
             <div className="min-h-[calc(100vh-140px)] lg:min-h-[calc(100vh-100px)] flex flex-col p-6">

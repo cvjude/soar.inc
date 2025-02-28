@@ -32,4 +32,5 @@ const Catchall = () => {
     </div>
   );
 };
+
 export default Catchall;

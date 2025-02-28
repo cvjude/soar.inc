@@ -69,8 +69,12 @@ export const DashboardHeader: FC<DashboardHeaderProps> = ({
             <Bell className="fill-current text-biro-blue w-6 h-6" />
           </div>
 
-          <div className="h-[35px] w-[35px] lg:h-[60px] lg:w-[60px] flex items-center justify-center rounded-[50%]">
-            <img src={user?.picture} alt="Profile" />
+          <div className=" flex items-center justify-center rounded-[50%]">
+            <img
+              src={user?.picture}
+              alt="Profile"
+              className="object-cover rounded-[50%] h-[35px] w-[35px] lg:h-[60px] lg:w-[60px]"
+            />
           </div>
         </div>
       </nav>

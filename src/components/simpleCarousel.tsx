@@ -33,14 +33,12 @@ const Carousel = ({ children }: { children: React.ReactNode[] }) => {
     }
   };
 
-  console.log(currentIndex);
-
   return (
     <div className="relative w-full max-w-3xl mx-auto">
       {currentIndex > 0 && (
         <button
           onClick={prev}
-          className="absolute left-0 top-1/2 -translate-y-1/2 p-2 bg-white text-pale-blue-500 rounded-full shadow-md z-10 w-[50px] h-[50px] grid place-content-center cursor-pointer rotate-180"
+          className="absolute left-0 top-1/2 -translate-y-1/2 p-2 bg-white text-pale-blue-500 rounded-full shadow-btn z-10 w-[50px] h-[50px] grid place-content-center cursor-pointer rotate-180"
         >
           <Chevron className="stroke-current text-pale-blue-500" />
         </button>
@@ -75,7 +73,7 @@ const Carousel = ({ children }: { children: React.ReactNode[] }) => {
       {currentIndex < pageScroll && (
         <button
           onClick={next}
-          className="absolute -right-12 top-1/2 -translate-y-1/2 p-2 bg-white text-pale-blue-500 rounded-full shadow-md z-10 w-[50px] h-[50px] grid place-content-center cursor-pointer"
+          className="absolute -right-12 top-1/2 -translate-y-1/2 p-2 bg-white text-pale-blue-500 rounded-full shadow-btn z-10 w-[50px] h-[50px] grid place-content-center cursor-pointer"
         >
           <Chevron className="stroke-current text-pale-blue-500" />
         </button>
