@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+body,
+svg {
+  font-family: 'Inter', serif;
+  font-optical-sizing: auto;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@theme {
+  --color-light-grey: #f3f3f5;
+
+  --color-pale-blue-50: #dfe5ee;
+  --color-pale-blue-100: #f5f7fa;
+  --color-pale-blue-200: #edf1f7;
+  --color-pale-blue-300: #dfeaf2;
+  --color-pale-blue-400: #8ba3cb;
+  --color-pale-blue-500: #718ebf;
+
+  --color-dark-300: #b1b1b1;
+  --color-dark-500: #232323;
+
+  --color-dark-blue: #343c6a;
+
+  --color-biro-blue: #396aff;
+
+  --color-pale-yellow-50: #fff5d9;
+  --color-pale-yellow-500: #ffbb38;
+
+  --color-pale-purple-50: #e7edff;
+  --color-pale-purple-500: #396aff;
+
+  --color-pale-teal-50: #dcfaf8;
+  --color-pale-teal-500: #16dbcc;
+
+  --color-credit-green: #41d4a8;
+  --color-debit-red: #ff4b4a;
+
+  --color-dark-orange: #fc7900;
+
+  --card-gradient: linear-gradient(107.38deg, #5b5a6f 2.61%, #000000 101.2%);
+  --card-footer-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  --font-lato: 'Lato', sans-serif;
+
+  --shadow-btn: 4px 4px 18px -2px #e7e4e8cc;
+}
+
+.nav__slider {
+  transition: top 0.3s ease-in-out;
+}
+
+.credit-card {
+  background: var(--card-gradient);
+}
+
+.credit-card__footer {
+  background: var(--card-footer-gradient);
+}
+
+.element-gap {
+  @apply gap-5 xl:gap-6 2xl:gap-8;
+}
+
+.x-axis text,
+.y-axis text {
+  font-size: 8px !important;
+}
+
+.bar-chart__axis_text {
+  @apply fill-current text-pale-blue-500 text-[12px] md:text-[13px];
+}
