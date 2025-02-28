@@ -50,8 +50,6 @@ const DashboardLayout = () => {
 
   useEffect(() => {
     const pagePath = pathname.split('/')[1] || '';
-    console.log(pathname);
-
     setCurrentPage(pathname === '/' ? 'Overview' : pageMap[pagePath]);
   }, []);
 
